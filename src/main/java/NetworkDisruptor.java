@@ -116,9 +116,9 @@ public class NetworkDisruptor {
     private static void loadFromDgsFile() {
         try {
             FileSource source = FileSourceFactory.sourceFor(
-                    "data/tutorialNumerical.dgs");
+                    "data/nodes.dgs");
             source.addSink(graph);
-            source.begin("data/tutorialNumerical.dgs");
+            source.begin("data/nodes.dgs");
             while (source.nextEvents()) ;
             source.end();
         } catch (Exception e) {
