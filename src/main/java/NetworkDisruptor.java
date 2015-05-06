@@ -42,7 +42,6 @@ public class NetworkDisruptor {
 
         int sourceT;
         int sink;
-        double maxFlow;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Source ID: ");
@@ -58,21 +57,14 @@ public class NetworkDisruptor {
 
         setCapacityFromEdges();
         fordFulkersonAlgorithm.compute();
-        maxFlow = fordFulkersonAlgorithm.getMaximumFlow();
-
+        System.out.println("Max flow is : " + fordFulkersonAlgorithm.getMaximumFlow());
 
         initializeCapacityArray();
 
-        for (Node node : graph) {
-            node.addAttribute("ui.label", node.getId());
-        }
-
         setLabels();
 
-        /* Print Max flow*/
-        System.out.println("Max flow is : " + maxFlow);
-
         printCapacityArray();
+
         MaxFlowMinCut maxFlowMinCut = new MaxFlowMinCut(graph.getNodeCount());
         maxFlowMinCut.maxFlowMinCut(capacityArray, sourceT, sink);
 
@@ -101,6 +93,11 @@ public class NetworkDisruptor {
     }
 
     private static void setLabels() {
+
+        for (Node node : graph) {
+            node.addAttribute("ui.label", node.getId());
+        }
+
         for (Edge edge : graph.getEachEdge()) {
             Node nodeFirst = graph.getNode(Character.toString(edge.getId().charAt(0)));
             Node nodeSecond = graph.getNode(Character.toString(edge.getId().charAt(1)));
