@@ -27,3 +27,8 @@ Install packages and build project using following command
 You may test the newly compiled and packaged JAR with the following command:
     
     java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+
+To learn more about go to link below:
+    
+    https://github.com/nurolopher/transportation-network-disrupt
+    
